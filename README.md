@@ -1,12 +1,13 @@
 # Pokedux
 
-Um web app para pesquisar Pokemons utilizando React e Redux.
+Um web app para encontrar Pokemons utilizando React e Redux.
 
 
 ## Stack
 - React
 - Typescript
 - AXIOS
+- Styled Components
 
 
 ## Running
@@ -20,3 +21,7 @@ npm start
 
 | src
 |__ components
+|____ pages
+|____ ui
+|__ configs
+|__ services
