@@ -19,9 +19,11 @@ npm start
 
 ## Structure
 
-| src
-|__ components
-|____ pages
-|____ ui
-|__ configs
-|__ services
+```
+src
+├── components
+│   ├── pages
+│   └── ui
+├── configs
+└── services
+```
