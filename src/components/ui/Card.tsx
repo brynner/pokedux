@@ -60,12 +60,10 @@ function Card(props: {
 }) {
 
   return (
-    <div>
-      <StyledCard>
-        <StyledTitle>{props.title}</StyledTitle>
-        <StyledAvatar><img src={props.picture} /></StyledAvatar>
-      </StyledCard>
-    </div>
+    <StyledCard>
+      <StyledTitle>{props.title}</StyledTitle>
+      <StyledAvatar><img src={props.picture} alt={props.title} /></StyledAvatar>
+    </StyledCard>
   );
 
 }

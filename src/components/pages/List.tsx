@@ -43,7 +43,7 @@ const List = () => {
 
   return (
     <div>
-      <h1>List</h1>
+      <h1>Pokedux</h1>
       {mountList(list)}
     </div>
   )
