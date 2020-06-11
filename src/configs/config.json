@@ -2,5 +2,8 @@
   "version": "1.0",
   "api": {
       "url": "https://pokeapi.co/api/v2"
+  },
+  "cdn": {
+    "url": "https://pokeres.bastionbot.org/images/pokemon"
   }
 }
