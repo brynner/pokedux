@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-
 import PokemonService from '../../services/PokemonService';
+import Container from '../ui/Container';
 import Card from '../ui/Card';
 import Row from '../ui/Row';
 import Col from '../ui/Col';
 import Tag from '../ui/Tag';
+import Button from '../ui/Button';
 
 const config = require('../../configs/config.json');
 
@@ -24,8 +25,6 @@ function PokemonItem() {
   const getPokemonItem = (id: number) => {
 
     PokemonService.getPokemonItem(id).then(result => {
-
-      console.log(result.data);
 
       setPokemonItem(result.data);
 
@@ -73,14 +72,13 @@ function PokemonItem() {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Pokedux</h1>
+      <Button onClick={() => history.push('/')}>Back to Home</Button>
       {
         mountPokemonItem(pokemonItem)
       }
-      <br />
-      <button onClick={() => history.push('/')}>Back to Home</button>
-    </div>
+    </Container>
   )
 }
 

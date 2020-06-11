@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PokemonService from '../../services/PokemonService';
+import Container from '../ui/Container';
 import Card from '../ui/Card';
 import Row from '../ui/Row';
 import Col from '../ui/Col';
@@ -46,10 +47,10 @@ function PokemonList() {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Pokedux</h1>
       {mountPokemonList(list)}
-    </div>
+      </Container>
   )
 }
 
