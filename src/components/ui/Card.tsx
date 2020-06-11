@@ -10,7 +10,7 @@ const StyledCard = styled.div`
   border-radius: 10px;
   cursor: pointer;
 
-  background-image: url('bg-pokeball.png');
+  background-image: url('/bg-pokeball.png');
   background-repeat: no-repeat;
   background-position: right;
 
@@ -26,7 +26,7 @@ const StyledCard = styled.div`
     width: 74px;
     height: 32px;
 
-    background-image: url('bg-pattern.png');
+    background-image: url('/bg-pattern.png');
     background-repeat: no-repeat;
     
   }
