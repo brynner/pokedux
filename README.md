@@ -6,6 +6,7 @@ Um web app para encontrar Pokemons utilizando React e Redux.
 ## Stack
 - React
 - Hooks
+- Router
 - Typescript
 - AXIOS
 - Styled Components
