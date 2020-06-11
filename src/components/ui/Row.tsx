@@ -6,7 +6,6 @@ const StyledRow = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  background-color: yellow;
   justify-content: center;
 `;
 

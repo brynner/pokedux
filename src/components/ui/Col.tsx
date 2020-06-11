@@ -6,18 +6,14 @@ const StyledCol = styled.div`
   flex-direction: column;
   flex-basis: 100%;
   flex: 25%;
-  background-color: red;
-  padding: 10px 0px;
   width:300px;
 
   @media screen and (max-width: 992px) {
     flex: 33%;
-    background-color: blue;
   }
 
   @media screen and (max-width: 600px) {
     flex: 50%;
-    background-color: orange;
   }
 `;
 
