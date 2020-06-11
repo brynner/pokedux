@@ -17,10 +17,10 @@ function PokemonItem() {
   const [pokemonItem, setPokemonItem] = useState([]);
 
   useEffect(() => {
-    getPokemonItem();
-  }, []);
+    getPokemonItem(id);
+  }, [id]);
 
-  const getPokemonItem = () => {
+  const getPokemonItem = (id: number) => {
 
     PokemonService.getPokemonItem(id).then(result => {
 
