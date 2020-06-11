@@ -33,9 +33,10 @@ const StyledCard = styled.div`
 
 const StyledTitle = styled.h2`
   position: absolute;
-  top: 20px;
+  top: 26px;
   left: 20px;
   width: 150px;
+  font-size: 20px;
   font-weight: bold;
   text-align: left;
   text-transform: capitalize;
