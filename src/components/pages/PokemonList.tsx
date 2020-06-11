@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PokemonService from '../../services/PokemonService';
 import Card from '../ui/Card';
 import Row from '../ui/Row';
@@ -6,7 +7,7 @@ import Col from '../ui/Col';
 
 const config = require('../../configs/config.json');
 
-const List = () => {
+function PokemonList() {
 
   const [list, setList] = useState([]);
 
@@ -16,7 +17,7 @@ const List = () => {
 
   const getPokemonList = () => {
 
-    PokemonService.getItems().then(result => {
+    PokemonService.getPokemonList().then(result => {
 
       setList(result.data.results);
 
@@ -26,15 +27,18 @@ const List = () => {
     });
   }
 
-  const mountList = (data: any) => {
-    
+  const mountPokemonList = (data: any) => {
+
     const items = data.map((item: any, index: number) => {
+
+      const id = index + 1;
+
       return (
-        <div key={index}>
+        <Link to={`/pokemon/${id}`} key={index}>
           <Col xs={12} sm={6} md={3} lg={4}>
-            <Card title={item.name} picture={`${config.cdn.url}/${index+1}.png`} />
+            <Card title={item.name} picture={`${config.cdn.url}/${id}.png`} />
           </Col>
-        </div>
+        </Link>
       );
     });
 
@@ -44,9 +48,9 @@ const List = () => {
   return (
     <div>
       <h1>Pokedux</h1>
-      {mountList(list)}
+      {mountPokemonList(list)}
     </div>
   )
 }
 
-export default List;
+export default PokemonList;
