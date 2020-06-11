@@ -37,6 +37,14 @@ function PokemonItem() {
     return <Row>
       <Col xs={12} sm={6} md={3} lg={4}>
         <Card title={data.name} picture={`${config.cdn.url}/${id}.png`} />
+        {!data.stats ? '' :
+        <div>
+          <p>HP: {data.stats[0].base_stat}</p>
+          <p>Attack: {data.stats[1].base_stat}</p>
+          <p>Defense: {data.stats[2].base_stat}</p>
+          <p>Speed: {data.stats[5].base_stat}</p>
+        </div>
+        }
       </Col>
     </Row>;
   }
@@ -47,6 +55,7 @@ function PokemonItem() {
       {
         mountPokemonItem(pokemonItem)
       }
+      <br />
       <button onClick={() => history.push('/')}>Back to Home</button>
     </div>
   )
