@@ -1,6 +1,6 @@
 # Pokedux
 
-Um web app para encontrar Pokemons utilizando React e Redux.
+Um web app em React para encontrar Pokemons.
 
 
 ## Stack
