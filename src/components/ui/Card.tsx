@@ -8,6 +8,7 @@ const StyledCard = styled.div`
   width: calc(100% - 30px);
   height: 115px;
   border-radius: 10px;
+  cursor: pointer;
 
   background-image: url('bg-pokeball.png');
   background-repeat: no-repeat;
