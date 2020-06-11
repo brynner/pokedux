@@ -2,24 +2,67 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
-  background-color: #ececec;
-  width: 100%;
-  height: 100px;
+  position: relative;
+  background-color: #8BBE8A;
+  margin: 15px;
+  width: calc(100% - 30px);
+  height: 115px;
+  border-radius: 10px;
+
+  background-image: url('bg-pokeball.png');
+  background-repeat: no-repeat;
+  background-position: right;
+
+  -webkit-box-shadow: 0px 20px 28px -25px rgba(139,190,138,1);
+  -moz-box-shadow: 0px 20px 28px -25px rgba(139,190,138,1);
+  box-shadow: 0px 20px 28px -25px rgba(139,190,138,1);
+
+  &::after {
+    position: absolute;
+    top: 6px;
+    left: 50px;
+    content: '';
+    width: 74px;
+    height: 32px;
+
+    background-image: url('bg-pattern.png');
+    background-repeat: no-repeat;
+    
+  }
 `;
 
 const StyledTitle = styled.h2`
-  font-weight: normal;
-  color: #777777;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  font-weight: bold;
+  text-align: left;
+  text-transform: capitalize;
+  color: #FFFFFF;
+`;
+
+const StyledAvatar = styled.div`
+background-color: #000000;
+
+img {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  width: 110px;
+}
 `;
 
 function Card(props: {
-  title: string
+  title?: string,
+  picture?: string
 }) {
 
   return (
     <div>
       <StyledCard>
         <StyledTitle>{props.title}</StyledTitle>
+        <StyledAvatar><img src={props.picture} /></StyledAvatar>
       </StyledCard>
     </div>
   );
