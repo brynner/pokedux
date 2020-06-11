@@ -18,15 +18,11 @@ const StyledCol = styled.div`
 `;
 
 function Grid(props: {
-  children: any,
-  xs?: number,
-  sm?: number,
-  md?: number,
-  lg?: number
+  children: any
 }) {
 
   const mountColumns = () => {
-    return(props.children);
+    return props.children;
   }
 
   return (

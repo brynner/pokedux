@@ -35,7 +35,7 @@ function PokemonList() {
 
       return (
         <Link to={`/pokemon/${id}`} key={index}>
-          <Col xs={12} sm={6} md={3} lg={4}>
+          <Col>
             <Card title={item.name} picture={`${config.cdn.url}/${id}.png`} />
           </Col>
         </Link>

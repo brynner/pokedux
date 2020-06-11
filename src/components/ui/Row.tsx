@@ -14,11 +14,9 @@ function Row(props: {
 }) {
 
   return (
-    <div>
-      <StyledRow>
-        {props.children}
-      </StyledRow>
-    </div>
+    <StyledRow>
+      {props.children}
+    </StyledRow>
   );
 
 }
