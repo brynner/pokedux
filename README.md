@@ -37,20 +37,20 @@ src
 ├── components
 │   ├── pages
 │   │  ├── PokemonItem.tsx
-│   │  └── PokemonList
+│   │  └── PokemonList.tsx
 │   └── ui
-│      ├── Button
-│      ├── Card
-│      ├── Col
-│      ├── Container
-│      ├── Gap
-│      ├── Row
-│      └── Tag
+│      ├── Button.tsx
+│      ├── Card.tsx
+│      ├── Col.tsx
+│      ├── Container.tsx
+│      ├── Gap.tsx
+│      ├── Row.tsx
+│      └── Tag.tsx
 ├── configs
 │   └── config.json
 ├── services
 │   ├── PokemonService.js
 │   └── PokemonService.test.js
-├── index.js
-└── store.js
+├── index.tsx
+└── store.jsx
 ```
