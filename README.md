@@ -11,12 +11,20 @@ Um web app em React para encontrar Pokemons.
 - Typescript
 - AXIOS
 - Styled Components
+- Jest
 
 
 ## Running
 
 ```
 npm start
+```
+
+
+## Unit Testing
+
+```
+npm test
 ```
 
 
