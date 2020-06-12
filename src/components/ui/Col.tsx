@@ -21,14 +21,10 @@ function Grid(props: {
   children: any
 }) {
 
-  const mountColumns = () => {
-    return props.children;
-  }
-
   return (
     <div>
       <StyledCol>
-        {mountColumns()}
+        {props.children}
       </StyledCol>
     </div>
   );

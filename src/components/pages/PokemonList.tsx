@@ -30,7 +30,7 @@ function PokemonList() {
       setList(result.data.results);
 
     }).catch(result => {
-
+      
       console.log(result);
     });
   }

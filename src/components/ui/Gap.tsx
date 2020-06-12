@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledGap = styled.h1`
+const StyledGap = styled.div`
   margin-bottom: 25px;
 `;
 

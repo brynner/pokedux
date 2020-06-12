@@ -89,20 +89,17 @@ function PokemonItem() {
   const mountAbilities = (data: any) => {
 
     const items = data.map((item: any, index: number) => {
-
       return (
         <Tag key={index}>{item.ability.name}</Tag>
       );
     });
 
     return <div>{items}</div>;
-
   }
 
   return (
     <Container>
       <h1>Pokedux</h1>
-      <Button onClick={() => console.log(state)}>State</Button>
       <Button onClick={() => history.push('/')}>Back to Home</Button>
       {
         mountPokemonItem(state)

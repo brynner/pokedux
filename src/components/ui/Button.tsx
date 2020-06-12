@@ -19,7 +19,7 @@ const StyledButton = styled.div`
 `;
 
 function Button(props: {
-  onClick: any,
+  onClick?: any,
   children: any
 }) {
 
