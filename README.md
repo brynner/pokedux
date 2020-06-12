@@ -7,6 +7,7 @@ Um web app em React para encontrar Pokemons.
 - React
 - Hooks
 - Router
+- ContextAPI
 - Typescript
 - AXIOS
 - Styled Components

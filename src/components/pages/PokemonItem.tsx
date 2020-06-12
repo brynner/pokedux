@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
+import { useStore } from '../../store';
 import { useParams, useHistory } from 'react-router-dom';
 import PokemonService from '../../services/PokemonService';
+
+// Components
 import Container from '../ui/Container';
 import Card from '../ui/Card';
 import Row from '../ui/Row';
@@ -13,49 +16,74 @@ const config = require('../../configs/config.json');
 function PokemonItem() {
 
   const { id } = useParams();
-
   const history = useHistory();
 
-  const [pokemonItem, setPokemonItem] = useState([]);
+  // State
+  const { state, dispatch } = useStore();
+
+  // Verify if item already was added into Context
+  const indexPokemonItem = state.pokemons.findIndex((item: any) => item.id === id);
+  
+  const initialFetch = useCallback(() => {
+    // Pokemon is not into Context, so add it
+    if (indexPokemonItem < 0) {
+
+      // Add new item to current state
+      PokemonService.getPokemonItem(id).then(result => {
+
+        const pokemonData = {
+          id: id,
+          name: result.data.name,
+          stats: {
+            hp: result.data.stats[0].base_stat,
+            attack: result.data.stats[1].base_stat,
+            defense: result.data.stats[2].base_stat,
+            speed: result.data.stats[5].base_stat
+          },
+          abilities: result.data.abilities
+        }
+
+        // Store
+        dispatch({ type: 'addPokemon', data: pokemonData })
+
+      }).catch(result => {
+        console.log(result);
+      });
+
+    }
+  }, [id, indexPokemonItem, dispatch]);
 
   useEffect(() => {
-    getPokemonItem(id);
-  }, [id]);
-
-  const getPokemonItem = (id: number) => {
-
-    PokemonService.getPokemonItem(id).then(result => {
-
-      setPokemonItem(result.data);
-
-    }).catch(result => {
-
-      console.log(result);
-    });
-  }
+    initialFetch();
+  }, [initialFetch]);
 
   const mountPokemonItem = (data: any) => {
 
-    return <Row>
-      <Col>
-        <Card title={data.name} picture={`${config.cdn.url}/${id}.png`} />
-        {!data.stats ? '' :
-          <div>
-            <h3>Stats</h3>
-            <p>HP: {data.stats[0].base_stat}</p>
-            <p>Attack: {data.stats[1].base_stat}</p>
-            <p>Defense: {data.stats[2].base_stat}</p>
-            <p>Speed: {data.stats[5].base_stat}</p>
-          </div>
-        }
-        {!data.abilities ? '' :
-          <>
-            <h3>Abilities</h3>
-            {mountAbilities(data.abilities)}
-          </>
-        }
-      </Col>
-    </Row>;
+    if (indexPokemonItem >= 0) {
+      // Pokemon found
+      const pokemonStore = data.pokemons[indexPokemonItem];
+
+      return <Row>
+        <Col>
+          <Card title={pokemonStore.name} picture={`${config.cdn.url}/${id}.png`} />
+          {!pokemonStore.stats ? '' :
+            <div>
+              <h3>Stats</h3>
+              <p>HP: {pokemonStore.stats.hp}</p>
+              <p>Attack: {pokemonStore.stats.attack}</p>
+              <p>Defense: {pokemonStore.stats.defense}</p>
+              <p>Speed: {pokemonStore.stats.speed}</p>
+            </div>
+          }
+          {!pokemonStore.abilities ? '' :
+            <>
+              <h3>Abilities</h3>
+              {mountAbilities(pokemonStore.abilities)}
+            </>
+          }
+        </Col>
+      </Row>;
+    }
   }
 
   const mountAbilities = (data: any) => {
@@ -67,16 +95,17 @@ function PokemonItem() {
       );
     });
 
-  return <div>{items}</div>;
+    return <div>{items}</div>;
 
   }
 
   return (
     <Container>
       <h1>Pokedux</h1>
+      <Button onClick={() => console.log(state)}>State</Button>
       <Button onClick={() => history.push('/')}>Back to Home</Button>
       {
-        mountPokemonItem(pokemonItem)
+        mountPokemonItem(state)
       }
     </Container>
   )
