@@ -30,11 +30,27 @@ npm test
 
 ## Structure
 
+Arquivos que foram criados para este projeto.
+
 ```
 src
 ├── components
 │   ├── pages
+│   │  ├── PokemonItem.tsx
+│   │  └── PokemonList
 │   └── ui
+│      ├── Button
+│      ├── Card
+│      ├── Col
+│      ├── Container
+│      ├── Gap
+│      ├── Row
+│      └── Tag
 ├── configs
-└── services
+│   └── config.json
+├── services
+│   ├── PokemonService.js
+│   └── PokemonService.test.js
+├── index.js
+└── store.js
 ```
